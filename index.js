@@ -26,6 +26,10 @@ app.use(cors({
 
 app.use('/api', router);
 
+app.get('*', (req, res) => {
+  return res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 const start = async () => {
   try {
     await connectDB();
